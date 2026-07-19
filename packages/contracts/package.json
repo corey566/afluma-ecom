@@ -13,7 +13,13 @@
     "typescript": "^5.8.0"
   },
   "exports": {
-    "./event-envelope": "./dist/event-envelope.js",
-    "./tenant": "./dist/tenant.js"
+    "./event-envelope": {
+      "types": "./dist/event-envelope.d.ts",
+      "import": "./dist/event-envelope.js"
+    },
+    "./tenant": {
+      "types": "./dist/tenant.d.ts",
+      "import": "./dist/tenant.js"
+    }
   }
 }

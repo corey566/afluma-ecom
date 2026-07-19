@@ -13,3 +13,5 @@ src-tauri/target/
 *.sqlite
 *.sqlite3
 .local-data/
+
+.turbo/
