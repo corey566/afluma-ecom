@@ -1,0 +1,19 @@
+{
+  "name": "@afluma/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo contracts lint pending",
+    "test": "echo contracts tests pending"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  },
+  "exports": {
+    "./event-envelope": "./dist/event-envelope.js",
+    "./tenant": "./dist/tenant.js"
+  }
+}

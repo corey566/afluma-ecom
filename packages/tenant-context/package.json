@@ -1,0 +1,1 @@
+{"name":"@afluma/tenant-context","version":"0.1.0","private":true,"type":"module","scripts":{"build":"tsc -p tsconfig.json","typecheck":"tsc -p tsconfig.json --noEmit","lint":"echo tenant lint pending","test":"echo tenant tests pending"},"dependencies":{"@afluma/contracts":"workspace:*"},"devDependencies":{"typescript":"^5.8.0"}}

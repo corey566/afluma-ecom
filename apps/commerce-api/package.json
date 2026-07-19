@@ -1,0 +1,20 @@
+{
+  "name": "@afluma/commerce-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --watch --enable-source-maps dist/main.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "echo commerce-api lint pending",
+    "test": "echo commerce-api tests pending"
+  },
+  "dependencies": {
+    "@afluma/contracts": "workspace:*",
+    "@afluma/tenant-context": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
