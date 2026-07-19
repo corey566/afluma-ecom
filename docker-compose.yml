@@ -1,14 +1,20 @@
-services:
+﻿services:
   control-plane-db:
     image: postgres:17-alpine
     environment:
       POSTGRES_USER: afluma
       POSTGRES_PASSWORD: afluma
       POSTGRES_DB: afluma_control
-    ports: ["5432:5432"]
+    ports:
+      - "5432:5432"
     volumes:
       - control_plane_data:/var/lib/postgresql/data
       - ./database/control-plane/001_initial.sql:/docker-entrypoint-initdb.d/001_initial.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U afluma -d afluma_control"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   tenant-db-cluster:
     image: postgres:17-alpine
@@ -16,21 +22,35 @@ services:
       POSTGRES_USER: afluma
       POSTGRES_PASSWORD: afluma
       POSTGRES_DB: postgres
-    ports: ["5433:5432"]
+    ports:
+      - "5433:5432"
     volumes:
       - tenant_cluster_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U afluma -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   redis:
     image: redis:7-alpine
-    ports: ["6379:6379"]
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   minio:
     image: minio/minio:latest
-    command: server /data --console-address :9001
+    command: server /data --console-address ":9001"
     environment:
       MINIO_ROOT_USER: afluma
       MINIO_ROOT_PASSWORD: afluma-secret
-    ports: ["9000:9000", "9001:9001"]
+    ports:
+      - "9000:9000"
+      - "9001:9001"
     volumes:
       - minio_data:/data
 

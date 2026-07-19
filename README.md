@@ -1,4 +1,4 @@
-# Afluma Commerce Foundation
+﻿# Afluma Commerce Foundation
 
 This repository is the technical starting point for Afluma Commerce.
 
@@ -40,4 +40,3 @@ This repository is the technical starting point for Afluma Commerce.
 6. Start apps with `pnpm dev` after their implementation dependencies are installed.
 
 This is a foundation scaffold, not a claim that the product is production-ready.
-"# afluma-ecom" 
